@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="CSEC" />
+    <meta name="generator" content="CSEC" />
+    <title>CSEC-ASTU</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+
+    {% block cssimport %} {% endblock cssimport %}
+  </head>
+  <body>
+    <!-- Nav bar starts -->
+    {% include "navbar.html" %}
+    <!-- Navbar ends -->
+    {% block content %} {% endblock %}
+
+    <!-- Footer -->
+    <footer
+      class="text-center text-lg-start"
+      style="background-color: rgba(0, 0, 0, 0.15)"
+    >
+      <!-- Grid container -->
+      <div class="container p-4">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+            <h5 class="text-uppercase"><b> CSEC-ASTU</b></h5>
+
+            <p>
+              Computer Science and Engineering Club is founded in Adama Science
+              and technology university. since then it is working actively for
+              International Colligates Programming Contest and other
+              international contests. we also host
+              <code>Ethiopians Colligates Programming Contests</code>. We are
+              <code>CSEC-ASTU!</code>
+            </p>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase"><b>Divisions</b></h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="#!" class="text-dark">Competitive Programming</a>
+              </li>
+              <li>
+                <a href="#!" class="text-dark">Development</a>
+              </li>
+              <li>
+                <a href="#!" class="text-dark">Capacity Building</a>
+              </li>
+              <li>
+                <a href="#!" class="text-dark">Cyber Security(Coming Soon)</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase mb-0"><b>Excutive Commitee</b></h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!" class="text-dark">Bemnet Nikodimos</a>
+              </li>
+              <li>
+                <a href="#!" class="text-dark">Elias Amha</a>
+              </li>
+              <li>
+                <a href="#!" class="text-dark">Yohannes Fikru</a>
+              </li>
+              <li>
+                <a href="#!" class="text-dark">Kamil Abdurehim</a>
+              </li>
+              <li>
+                <a href="#!" class="text-dark">Nebiyu Adem</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </div>
+      <!-- Grid container -->
+
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2021 Copyright:
+        <a class="text-dark" href="#">CSEC-ASTU</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
+    <script src="{% static 'vendor/jquery3.5.1.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %} "></script>
+    {% block jsimport %}{% endblock jsimport %}
+  </body>
+</html>

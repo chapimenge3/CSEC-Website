@@ -1,95 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="CSEC" />
-    <meta name="generator" content="CSEC" />
-    <title>CSEC-ASTU</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-      crossorigin="anonymous"
-    />
 
-    <!-- Custom styles for this template -->
-    <link href="../static/css/style.css" rel="stylesheet" />
-  </head>
-  <body>
-      <!-- Nav bar starts -->
-    <div class="container">
-      <nav
-        class="navbar navbar-expand-md navbar-light fixed-top"
-        style="background-color: #eeebdf"
-      >
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">CSEC</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+{% extends "__base__.html" %}
+{% load static %}
 
-          <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Contest</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="dropdown01"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                  >Divisions</a
-                >
-                <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                  <li>
-                    <a class="dropdown-item" href="#"
-                      >Competitive Programming</a
-                    >
-                  </li>
-                  <li><a class="dropdown-item" href="#">Development</a></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Capacity Building</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
-              </li>
-            </ul>
-            <button
-              class="btn btn-outline-success"
-              type="submit"
-              style="margin-right: 5px"
-            >
-              Login
-            </button>
-
-            <button class="btn btn-outline-success" type="submit">
-              Register
-            </button>
-          </div>
-        </div>
-      </nav>
-    </div>
-    <!-- Navbar ends -->
+    {% block content %}
     <!-- Section 1 -->
     <section class="text-center sec1" style="min-height: 150vh;">
 
@@ -106,7 +19,7 @@
           <div class="row row-cols-1 row-cols-md-2 g-4">
             <div class="col">
               <div class="card h-100" style="background-color: #eee2d8;">
-                <img src="../static/img/csecastu.jpg" class="card-img-top img-fluid " alt="...">
+                <img src="{% static 'img/csecastu.jpg' %}" class="card-img-top img-fluid " alt="...">
                 <div class="card-body">
                   <h5 class="card-title">CSEC-ASTU</h5>
                 </div>
@@ -114,7 +27,7 @@
             </div>
             <div class="col">
               <div class="card h-100" style="background-color: #eee2d8;">
-                <img src="../static/img/cseclogo.jpg" class=" mx-auto card-img-top  img-fluid" alt="...">
+                <img src="{% static 'img/cseclogo.jpg' %}" class=" mx-auto card-img-top  img-fluid" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">CSEC-ASTU</h5>
                 </div>
@@ -143,7 +56,7 @@
           <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
               <div class="card">
-                <img src="../static/img/showcase1.jpg" class="card-img-top" alt="...">
+                <img src="{% static 'img/showcase1.jpg' %}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">ETHCPC Training</h5>
                   <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
@@ -152,7 +65,7 @@
             </div>
             <div class="col">
               <div class="card">
-                <img src="../static/img/showcase2.jpg" class="card-img-top" alt="...">
+                <img src="{% static 'img/showcase2.jpg' %}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">ETHCPC Training</h5>
                   <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
@@ -161,7 +74,7 @@
             </div>
             <div class="col">
               <div class="card">
-                <img src="../static/img/showcase3.jpg" class="card-img-top" alt="...">
+                <img src="{% static 'img/showcase3.jpg' %}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">ETHCPC Training</h5>
                   <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p> -->
@@ -185,7 +98,7 @@
           <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
               <div class="card h-100">
-                <img src="../static/logos/Laravel.svg" class="card-img-top img-fluid" alt="...">
+                <img src="{% static 'logos/Laravel.svg' %}" class="card-img-top img-fluid" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Laravel</h5>
                   <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
@@ -199,7 +112,7 @@
               <div class="card h-100">
                 <br>
                 <br>
-                <img src="../static/logos/django-community.svg" style="margin-top: 70px" class=" mx-auto card-img-top  img-fluid" alt="...">
+                <img src="{% static 'logos/django-community.svg' %}" style="margin-top: 70px" class=" mx-auto card-img-top  img-fluid" alt="...">
                 <!-- <div class="card-body">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
@@ -208,7 +121,7 @@
             </div>
             <div class="col">
               <div class="card h-100">
-                <img src="../static/logos/flutter.png" class="card-img-top" alt="...">
+                <img src="{% static 'logos/flutter.png' %}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Flutter</h5>
                   <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p> -->
@@ -238,7 +151,7 @@
           <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
               <div class="card h-100" style="background-color: #f0e6d3;">
-                <img src="../static/img/trainignethcpc.jpg" class="card-img-top" alt="...">
+                <img src="{% static 'img/trainignethcpc.jpg' %}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Trainign Session </h5>
                   <p>2020 ETCPC Training / Practice time for 2020 ETHCPC Contest </p>
@@ -247,7 +160,7 @@
             </div>
             <div class="col">
               <div class="card h-100" style="background-color: #f0e6d3;">
-                <img src="../static/img/training2.jpg" class=" mx-auto card-img-top  img-fluid" alt="...">
+                <img src="{% static 'img/training2.jpg' %}" class=" mx-auto card-img-top  img-fluid" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">ETHCPC Training Session</h5>
                   <p>Training member for 2020 ETHCPC Contest</p>
@@ -256,7 +169,7 @@
             </div>
             <div class="col">
               <div class="card h-100" style="background-color: #f0e6d3;">
-                <img src="../static/img/seminar.jpg"  class="card-img-top" alt="...">
+                <img src="{% static 'img/seminar.jpg' %}"  class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Seminar</h5>
                   <p>weekly Seminar time for ASTU community </p>
@@ -269,14 +182,6 @@
         </div>
       </main>
     </section>
+      {% endblock %}
 
-    <!-- Showcase capacity building section 4 ends -->
-    <script src="../static/vendor/jquery3.5.1.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-      crossorigin="anonymous"
-    ></script>
-    <script src="../static/js/main.js"></script>
-  </body>
-</html>
+   

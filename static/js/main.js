@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $(window).scroll(function () {
     var scroll = $(window).scrollTop();
-    console.log(scroll);
+    // console.log(scroll);
     if (scroll > 2000) {
       $(".navbar").css("background", "#E8DBC3");
     } else if (scroll > 1425) {

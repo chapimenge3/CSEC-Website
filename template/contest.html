@@ -1,0 +1,53 @@
+{% extends "__base__.html" %}
+{% load static %}
+
+{% block content %}
+  <section class="text-center sec1" style="min-height: 100vh;">
+
+      <main class="container" >
+        <div class="text-center py-5 px-3">
+          <br />
+          <h1>Computer Science and Engineering Club CSEC- Contest</h1>
+          <p class="lead">
+            There is <code> <a href="http://acpc.global/">ACPC</a></code> Contest comming up. From Ethiopia 4 team invited.
+            <br/>
+            <ol>
+                <li>Team Andalus</li>
+                <li>Team Proto-code</li>
+                <li>Team Proto-code</li>
+                <li>Team Proto-code</li>
+            </ol>
+          </p>
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            
+            <div class="col">
+              <div class="card h-100" style="background-color: #eee2d8;">
+                <img src="{% static 'logos/icpclogo.png' %}" height="" class="card-img-top img-fluid " alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">ICPC</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100" style="background-color: #eee2d8;">
+                <img src="{% static 'logos/acpc.jpeg' %}" class=" mx-auto card-img-top  img-fluid" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">ACPC</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100" style="background-color: #eee2d8;">
+                <img src="{% static 'logos/ethcpc.png' %}" class=" mx-auto card-img-top  img-fluid" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">ACPC</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </main>
+    </section>
+{% endblock content %}
