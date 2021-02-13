@@ -1,0 +1,26 @@
+body {
+  padding-top: 0.5rem;
+}
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.sec1{
+  background-color: #e4e0dd;
+  height: 95vh;
+  align-items: center
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+  .sec3{
+    min-height: auto;
+  }
+}
+
