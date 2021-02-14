@@ -53,17 +53,18 @@
               <a class="nav-link" href="#">Contact</a>
             </li>
           </ul>
-          <button
+          <a
             class="btn btn-outline-success"
             type="submit"
             style="margin-right: 5px"
+            href="{% url 'login' %}"
           >
             Login
-          </button>
+        </a>
 
-          <button class="btn btn-outline-success" type="submit">
+          <a class="btn btn-outline-success" href="{% url 'register' %}">
             Register
-          </button>
+          </a>
         </div>
       </div>
     </nav>

@@ -27,7 +27,7 @@ SECRET_KEY = '3=#$yvn%9mg14d9$)0!e#$=b+39fv2+=ba-m7vs*o^zkv^-$um'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'django.contrib.sites',
+    
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # Allauth Provider
+    'allauth.socialaccount.providers.google',
     
     # My Apps 
     'authentications.apps.AuthenticationsConfig',
@@ -83,7 +91,8 @@ WSGI_APPLICATION = 'CSEC.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': str(BASE_DIR / 'db.sqlite3'),
+
     }
 }
 
@@ -106,6 +115,29 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Allauth configrations
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+    
+]   
+
+SITE_ID = 1
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'APP': {
+            'client_id': '267717418304-l14ps77skrbod68jskaltebdhqg593aq.apps.googleusercontent.com',
+            'secret': 'ozg1PGCLptatfFvqhQt4f_Ld',
+            'key': ''
+        }
+    }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -129,5 +161,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-# STATIC_ROOT = os.path.join(BASE_DIR, "static")
+AUTH_USER_MODEL = "authentications.User"
 
+LOGIN_REDIRECT_URL = 'profile'

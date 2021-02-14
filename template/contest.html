@@ -1,8 +1,11 @@
 {% extends "__base__.html" %}
 {% load static %}
+{% block cssimport %}
+<link href="{% static 'css/style.css' %}" rel="stylesheet" />
+{% endblock cssimport %}
 
 {% block content %}
-  <section class="text-center sec1" style="min-height: 100vh;">
+  <section class="text-center sec1" style="min-height: 150vh;">
 
       <main class="container" >
         <div class="text-center py-5 px-3">
@@ -46,8 +49,6 @@
             </div>
           </div>
         </div>
-
-
       </main>
     </section>
 {% endblock content %}

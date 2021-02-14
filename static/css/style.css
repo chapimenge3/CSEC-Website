@@ -25,5 +25,8 @@ body {
   .sec3{
     min-height: auto;
   }
+  .custom-select{
+    width: 100%;
+  }
 }
 
