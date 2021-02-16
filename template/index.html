@@ -7,6 +7,24 @@
     {% block content %}
     <!-- Section 1 -->
     <section class="text-center sec1" style="min-height: 150vh;">
+    {% if messages %}
+     
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+          <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+              {% comment %} <img src="..." class="rounded me-2" alt="..."> {% endcomment %}
+              <strong class="me-auto">Messages</strong>
+              <small>now</small>
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+            {% for message in messages %}
+              <p>{{ message }}</p>
+            {% endfor %}
+            </div>
+          </div>
+        </div>
+    {% endif %}
 
       <main class="container" >
         <div class="text-center py-5 px-3">

@@ -1,0 +1,279 @@
+{% extends "__base__.html" %} {% load static %} {% block cssimport %}
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+
+{% endblock cssimport %} {% block content %}
+<style>
+  body {
+    background-color: #e4e0dd;
+  }
+
+  .google {
+    border: none;
+    background-color: rgba(221, 75, 57, 0.85);
+    color: white;
+  }
+
+  .google:hover {
+    color: #fff !important;
+    background-color: rgba(221, 75, 57, 1);
+    opacity: 1;
+  }
+
+  @media (min-width: 768px) {
+    #division-select {
+      width: 100vh !important;
+      color: red !important;
+      font-size: large;
+    }
+  }
+</style>
+
+<section class="text-center" style="background-color: #e4e0dd; height: 100vh; margin-top: 10vh" >
+
+{% for field in form %}
+{% if field.errors %}
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+  <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      {% comment %} <img src="..." class="rounded me-2" alt="..."> {% endcomment %}
+      <strong class="me-auto">Form Errors</strong>
+      <small>now</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+    {% for err in field.errors  %}
+      <p>{{err}}</p>
+    {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endfor %}
+
+{% comment %} {% if messages %}
+<div>
+  <strong>Messages:</strong>
+  <ul>
+    {% for message in messages %}
+    <li>{{message}}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+{% if messages %} {% for message in messages %}
+<div
+class="toast"
+role="alert"
+aria-live="assertive"
+aria-atomic="true"
+style="position: absolute; top: 4rem; right: 1rem"
+>
+<div class="toast-body">{{message}}</div>
+</div>
+{% endfor %} {% endif %} {% endcomment %}
+
+<!-- <section> -->
+  <form
+  class="needs-validation"
+  method="POST"
+  action="{% url 'account_signup' %}"
+  novalidate
+  >
+  {% csrf_token %}
+  
+  <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-8 col-xl-6">
+          <div class="row">
+            <div class="col text-center">
+              <h1>Register</h1>
+              <p class="text-h3">
+                CSEC-ASTU Registration Form. After you register your account
+                will be activated by Executive Committee
+              </p>
+              
+            </div>
+          </div>
+        
+          <!-- <a href="#" class="google btng"> -->
+            <a
+            class="btn google"
+            href="http://localhost:8000/accounts/google/login/?process=login"
+            role="button"
+            >
+            <i class="fa fa-google fa-fw"></i> Login with Google</a
+            >
+            <!-- </a> -->
+            
+            <div class="row align-items-center mt-4">
+              <div class="col">
+                <input
+                type="text"
+                class="form-control"
+                placeholder="First Name"
+                name="first_name"
+                value="{{ form.first_name.value | default_if_none:'' }}"
+                required
+                />
+                <div class="valid-feedback"></div>
+                <div class="invalid-feedback">Please Enter First Name.</div>
+              </div>
+              <div class="col">
+                <input
+                type="text"
+                class="form-control"
+                placeholder="Last Name"
+                name="last_name"
+                value="{{ form.last_name.value | default_if_none:'' }}"
+                required
+                />
+                <div class="valid-feedback"></div>
+                <div class="invalid-feedback">Please Enter Last Name.</div>
+              </div>
+            </div>
+            
+            <div class="row align-items-center mt-4">
+              <div class="col">
+                <input
+                type="text"
+                name="username"
+                class="form-control"
+                placeholder="Username"
+                value="{{ form.username.value | default_if_none:'' }}"
+                required
+                />
+                <div class="valid-feedback"></div>
+                <div class="invalid-feedback">Please choose a username.</div>
+              </div>
+              <div class="col">
+                <input
+                type="text"
+                class="form-control"
+                placeholder="Student Id"
+                name="student_id"
+                value="{{ form.student_id.value | default_if_none:'' }}"
+                required
+                />
+                <div class="valid-feedback"></div>
+                <div class="invalid-feedback">Please Enter Student Id.</div>
+              </div>
+            </div>
+            <div class="row align-items-center mt-4">
+              <div class="col">
+                <input
+                type="email"
+                name="email"
+                class="form-control"
+                placeholder="Email"
+                value="{{ form.email.value |default_if_none:'' }}"
+
+                required
+                />
+                <div class="valid-feedback"></div>
+                <div class="invalid-feedback">Please Enter Email.</div>
+              </div>
+            </div>
+            <div class="row align-items-center mt-4">
+              <div class="col">
+                <input
+                type="password"
+                class="form-control"
+                placeholder="Password"
+                id="password"
+                name="password1"
+                required
+                />
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please enter password.</div>
+              </div>
+              <div class="col">
+                <input
+                type="password"
+                class="form-control"
+                placeholder="Confirm Password"
+                id="cpassword"
+                name="password2"
+                required
+                />
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please enter confirm password.</div>
+                <!-- <div id="confirm" class="invalid-feedback">
+                  password Don't Match
+                </div> -->
+              </div>
+            </div>
+            <div class="row justify-content-start mt-4">
+              <div class="col">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" required />
+                    I Read and Accept
+                    <a href="#">Terms and Conditions</a>
+                  </label>
+                </div>
+                {% if redirect_field_value %}
+                <input
+                type="hidden"
+                name="{{ redirect_field_name }}"
+                value="{{ redirect_field_value }}"
+                />
+                {% endif %}
+                <button class="btn btn-primary mt-4" type="submit">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <!-- </section> -->
+  </section>
+  
+  {% endblock content %} {% block jsimport %}
+  <script>
+    (function () {
+      "use strict";
+      window.addEventListener(
+        "load",
+        function () {
+          $("");
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName("needs-validation");
+          
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function (form) {
+            // console.log(form);
+            form.addEventListener(
+              "submit",
+              function (event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                var password = $("#password").val();
+                // console.log(password);
+                if (password != "") {
+                  var cpassword = $("#cpassword").val();
+                  if (password != cpassword) {
+                    console.log("password Dont Match");
+                    event.preventDefault();
+                    event.stopPropagation();
+                  } else {
+                    // $("#cpassword").setCustomValidity("");
+                  }
+                }
+                form.classList.add("was-validated");
+              },
+              false
+              );
+            });
+          },
+          false
+          );
+        })();
+      </script>
+        
+{% endblock jsimport %}

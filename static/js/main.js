@@ -1,4 +1,7 @@
 $(document).ready(function () {
+  $('.dropdown-toggle').dropdown();
+  $('.toast').toast('show');
+  
   $(window).scroll(function () {
     var scroll = $(window).scrollTop();
     // console.log(scroll);

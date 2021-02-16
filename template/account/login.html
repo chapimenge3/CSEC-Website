@@ -1,7 +1,6 @@
 {% extends "__base__.html" %} {% load static %} {% block cssimport %}
 <link rel="stylesheet" href=" {% static 'css/login.css' %} " />
-
-{% endblock cssimport %} {% block content %}
+{% load poll_extras %} {% endblock cssimport %} {% block content %}
 <style>
   body {
     background-color: #e4e0dd;
@@ -106,61 +105,134 @@
   style="background-color: #e4e0dd; height: 100vh; margin-top: 10vh"
 >
   <div class="login-form">
-    <form method="post">
+    <form method="POST" action="{% url 'account_login' %}">
       {% csrf_token %}
       <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
       <h4 class="modal-title">Login to Your Account</h4>
-      
+
+      <!-- Error Toast Message -->
+
+      {% if form.errors %}
+      <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+        <div
+          id="liveToast"
+          class="toast hide"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div class="toast-header">
+            <i class="material-icons" style="color: red">error</i>
+            <strong class="me-auto">&nbsp;Login Errors</strong>
+            <small>now</small>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="toast"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="toast-body">
+            <p>The username and/or password you specified are not correct.</p>
+          </div>
+        </div>
+      </div>
+
+      {% endif %}
+
+      <!-- End Error Toast Message -->
+
+      <!-- Username Field -->
       <div class="form-group">
         <input
           type="text"
           class="form-control"
           placeholder="Username"
+          name="login"
           required="required"
         />
       </div>
+      <!-- End Username -->
+
+      <!-- Password Field -->
       <div class="form-group">
         <input
           type="password"
           class="form-control"
           placeholder="Password"
+          name="password"
+          autocomplete="current-password"
           required="required"
         />
       </div>
+      <!-- End Password field  -->
+
+      <!-- Start Remember me and Forget Password -->
+
       <div class="form-group small clearfix">
         <label class="form-check-label"
-          ><input type="checkbox" /> Remember me</label
-        >
+          ><input type="checkbox" name="remember" /> Remember me
+        </label>
         <a href="#" class="forgot-link" style="color: rgba(0, 0, 0, 0.664)"
           >Forgot Password?</a
         >
       </div>
+
+      <!-- End Remember me and Forget Password -->
+
+      <!-- Submit Buttom -->
       <input
         type="submit"
         class="btnc btnc-primary btnc-block btnc-lg"
         value="Login"
       />
+      <!-- End Submit Button -->
+
+      <!-- start login with Google button -->
 
       <div>
+        {% if redirect_field_value %}
+        <input
+          type="hidden"
+          name="{{ redirect_field_name }}"
+          value="{{ redirect_field_value }}"
+        />
+        {% endif %}
         <a
           class="btn google"
           href="http://localhost:8000/accounts/google/login/?process=login"
           role="button"
-          style="margin-top: 10px;"
+          style="margin-top: 10px"
         >
-          <i class="fa fa-google fa-fw"></i> Login with Google</a
-        >
+          <i class="fa fa-google fa-fw"></i>
+          Login with Google
+        </a>
       </div>
+
+      <!-- end login with Google button -->
+
     </form>
-    
+
+    <!-- End Form  -->
+
+    <!-- Sign up link -->
     <div class="text-center small">
       Don't have an account?
-      <a href="{% url 'account_signup' %}" style="color: rgba(0, 0, 0, 0.582)">Sign up</a>
+      <a href="{% url 'account_signup' %}" style="color: rgba(0, 0, 0, 0.582)"
+        >Sign up</a
+      >
     </div>
+    
+    <!-- End Signup link -->
+
   </div>
 </section>
+
+<!-- Js imports -->
 {% endblock content %} {% block jsimport %}
 <script>
   $(".navbar").css("background", "#E8DBC3");
 </script>
 {% endblock jsimport %}
+
+<!-- Js imports  -->

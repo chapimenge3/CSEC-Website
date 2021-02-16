@@ -1,7 +1,7 @@
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView,DetailView
 from django.contrib.auth.views import LoginView
 
 from . import forms
@@ -9,6 +9,7 @@ from . import models
 
 
 # Create your views here.
+
 
 class Homepage(TemplateView):
     template_name = "index.html" 
@@ -21,9 +22,12 @@ def profile(request):
     return redirect( reverse_lazy("index") )
 
 
+class UserProfile(DetailView):
+    model = models.User
+    template_name='account/profile.html'
 
-class Contest(TemplateView):
-    template_name = "contest.html"
+class Events(TemplateView):
+    template_name = "events.html"
     
 class Login(TemplateView):
     template_name = "login.html"
