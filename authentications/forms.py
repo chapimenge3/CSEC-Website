@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import User
+from .models import User, SocialAccountsLinks
 
 # All Auth imports 
 
@@ -13,17 +13,17 @@ def check_student_id(student_id):
         return True
     return False
 
-# X8xy9KdtrBdeUsB
+
 class CustomSingupForm(SignupForm):
     first_name = forms.CharField( max_length=150 )
     last_name = forms.CharField( max_length= 150 ) 
     student_id = forms.CharField( max_length=20 )
     
     def signup(self, request, user):
-        print("Custom Signup called")
         user.first_name = self.cleaned_data['first_name']
         user.last_name = self.cleaned_data['last_name']
         student_id = self.cleaned_data['student_id']
+        
         # if check_student_id(student_id):
         #     try:
         #         raise forms.ValidationError()
@@ -47,4 +47,10 @@ class RegisterForm(forms.ModelForm):
             raise forms.ValidationError("Student Id already exists")
         return student_id
 
-        
+
+class SocialAccountLinksForm(forms.ModelForm):
+    class Meta:
+        model = SocialAccountsLinks
+        fields = "__all__"
+    
+    
